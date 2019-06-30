@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>My Todo App</title>
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="mt-3 p-3">
+        <h2 class="text-center">MY TODO APP</h2>
+      </div>
+      <section>
+        <form
+          id="add-form"
+          action="JavaScript:void(0)"
+          method="POST"
+          onsubmit="app.Add()"
+        >
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <input
+                type="text"
+                class="form-control"
+                id="title"
+                name="title"
+                placeholder="Enter todo title ..."
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+          </div>
+        </form>
+        <form
+          id="edit-form"
+          class="d-none"
+          action="JavaScript:void(0)"
+          method="POST"
+          onsubmit="app.UpdateTodo()"
+        >
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <input
+                type="text"
+                class="form-control"
+                id="edit-input"
+                name="title"
+                placeholder="Enter todo title ..."
+              />
+              <input type="hidden" id="editing-id" />
+            </div>
+            <div class="form-group col-md-6">
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </div>
+        </form>
+      </section>
+      <section>
+        <h3>My Todo List</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Title</th>
+              <th scope="col">Completed</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody id="todos"></tbody>
+        </table>
+      </section>
+    </div>
+  </body>
+  <script src="./app.js"></script>
+</html>
